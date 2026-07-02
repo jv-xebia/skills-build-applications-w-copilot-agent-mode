@@ -22,7 +22,7 @@ function App() {
           <p className="eyebrow">OctoFit Tracker</p>
           <h1>Track your crew, your goals, and your momentum.</h1>
           <p className="lead">
-            Review users, teams, activities, workouts, and rankings from one polished dashboard.
+            Review users, teams, activities, workouts, and rankings from one polished dashboard experience.
           </p>
           <nav className="nav-pills" aria-label="Primary navigation">
             {navItems.map((item) => (
