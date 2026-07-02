@@ -9,7 +9,7 @@ const Workouts = () => {
   useEffect(() => {
     const loadWorkouts = async () => {
       try {
-        const response = await fetch(buildApiUrl('workouts'));
+        const response = await fetch(buildApiUrl('workouts/'));
         if (!response.ok) throw new Error('Unable to load workouts');
         const payload = await response.json();
         const data = Array.isArray(payload) ? payload : payload.results || [];

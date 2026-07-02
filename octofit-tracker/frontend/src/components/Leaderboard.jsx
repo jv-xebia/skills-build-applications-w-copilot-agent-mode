@@ -9,7 +9,7 @@ const Leaderboard = () => {
   useEffect(() => {
     const loadLeaderboard = async () => {
       try {
-        const response = await fetch(buildApiUrl('leaderboard'));
+        const response = await fetch(buildApiUrl('leaderboard/'));
         if (!response.ok) throw new Error('Unable to load leaderboard');
         const payload = await response.json();
         const data = Array.isArray(payload) ? payload : payload.results || [];

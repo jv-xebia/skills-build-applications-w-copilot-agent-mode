@@ -9,7 +9,7 @@ const Activities = () => {
   useEffect(() => {
     const loadActivities = async () => {
       try {
-        const response = await fetch(buildApiUrl('activities'));
+        const response = await fetch(buildApiUrl('activities/'));
         if (!response.ok) throw new Error('Unable to load activities');
         const payload = await response.json();
         const data = Array.isArray(payload) ? payload : payload.results || [];
