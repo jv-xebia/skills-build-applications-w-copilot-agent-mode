@@ -9,7 +9,7 @@ const Teams = () => {
   useEffect(() => {
     const loadTeams = async () => {
       try {
-        const response = await fetch(buildApiUrl('teams/'));
+        const response = await fetch(buildApiUrl('/api/teams/'));
         if (!response.ok) throw new Error('Unable to load teams');
         const payload = await response.json();
         const data = Array.isArray(payload) ? payload : payload.results || [];

@@ -16,6 +16,10 @@ const getCodespaceName = () => {
 };
 
 export const buildApiUrl = (resource) => {
+  if (resource.startsWith('/')) {
+    return resource;
+  }
+
   const codespaceName = getCodespaceName();
   const baseUrl = codespaceName
     ? `https://${codespaceName}-8000.app.github.dev`
