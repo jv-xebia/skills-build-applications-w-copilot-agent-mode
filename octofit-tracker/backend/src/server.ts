@@ -1,15 +1,15 @@
 import express from 'express';
 import cors from 'cors';
-import mongoose from 'mongoose';
+import type { Model } from 'mongoose';
 import { User } from './models/User.js';
 import { Team } from './models/Team.js';
 import { Activity } from './models/Activity.js';
 import { Leaderboard } from './models/Leaderboard.js';
 import { Workout } from './models/Workout.js';
+import { connectToDatabase } from './database.js';
 
 const app = express();
 const PORT = Number(process.env.PORT || 8000);
-const MONGO_URI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/octofit_db';
 const codespaceName = process.env.CODESPACE_NAME;
 const baseUrl = codespaceName
   ? `https://${codespaceName}-8000.app.github.dev`
@@ -18,7 +18,7 @@ const baseUrl = codespaceName
 app.use(cors());
 app.use(express.json());
 
-const createCrudRoutes = <T>(resourceName: string, model: mongoose.Model<T>) => {
+const createCrudRoutes = <T>(resourceName: string, model: Model<T>) => {
   const basePath = `/api/${resourceName}`;
 
   app.get([basePath, `${basePath}/`], async (_req, res) => {
@@ -58,8 +58,7 @@ app.get('/api/config', (_req, res) => {
   res.json({ apiUrl: baseUrl, port: PORT });
 });
 
-mongoose
-  .connect(MONGO_URI)
+connectToDatabase()
   .then(() => {
     console.log('Connected to MongoDB');
     app.listen(PORT, () => {
