@@ -5,7 +5,8 @@ const Team_js_1 = require("../models/Team.js");
 const Activity_js_1 = require("../models/Activity.js");
 const Leaderboard_js_1 = require("../models/Leaderboard.js");
 const Workout_js_1 = require("../models/Workout.js");
-const database_js_1 = require("../database.js");
+const database_js_1 = require("../config/database.js");
+// Seed the octofit_db database with test data.
 // Seed the octofit_db database with test data.
 async function seedDatabase() {
     console.log('Connecting to MongoDB...');

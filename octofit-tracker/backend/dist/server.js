@@ -50,6 +50,7 @@ app.get('/api/health', (_req, res) => {
         status: 'ok',
         message: 'Octofit Tracker API is running',
         apiUrl: baseUrl,
+        environment: 'codespaces-or-localhost',
     });
 });
 app.get('/api/config', (_req, res) => {
