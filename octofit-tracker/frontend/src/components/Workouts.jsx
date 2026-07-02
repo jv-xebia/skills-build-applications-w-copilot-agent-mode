@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { buildApiUrl } from '../utils/api.js';
 
 const Workouts = () => {
   const [items, setItems] = useState([]);
@@ -9,7 +8,7 @@ const Workouts = () => {
   useEffect(() => {
     const loadWorkouts = async () => {
       try {
-        const response = await fetch(buildApiUrl('/api/workouts/'));
+        const response = await fetch('/api/workouts/');
         if (!response.ok) throw new Error('Unable to load workouts');
         const payload = await response.json();
         const data = Array.isArray(payload) ? payload : payload.results || [];

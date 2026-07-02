@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { buildApiUrl } from '../utils/api.js';
 
 const Leaderboard = () => {
   const [items, setItems] = useState([]);
@@ -9,7 +8,7 @@ const Leaderboard = () => {
   useEffect(() => {
     const loadLeaderboard = async () => {
       try {
-        const response = await fetch(buildApiUrl('/api/leaderboard/'));
+        const response = await fetch('/api/leaderboard/');
         if (!response.ok) throw new Error('Unable to load leaderboard');
         const payload = await response.json();
         const data = Array.isArray(payload) ? payload : payload.results || [];
