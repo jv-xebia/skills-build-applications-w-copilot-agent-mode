@@ -3,8 +3,9 @@ import { Team } from '../models/Team.js';
 import { Activity } from '../models/Activity.js';
 import { Leaderboard } from '../models/Leaderboard.js';
 import { Workout } from '../models/Workout.js';
-import { connectToDatabase } from '../database.js';
+import { connectToDatabase } from '../config/database.js';
 
+// Seed the octofit_db database with test data.
 // Seed the octofit_db database with test data.
 async function seedDatabase() {
   console.log('Connecting to MongoDB...');
